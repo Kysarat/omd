@@ -1,7 +1,4 @@
-#!/usr/bin/env python
-# coding: utf-8
 
-# In[12]:
 from collections import defaultdict
 import csv
 from copy import deepcopy
@@ -19,15 +16,14 @@ def my_menu():
     Вывод консольного меню
     '''
     is_logged = False
+    reader = open_file('C:/Julia/AAA/HWsample.csv')
     while True:
         print(menu)
         inp = input()
         if inp == '1':
-            reader = open_file('C:/Julia/AAA/HWsample.csv')
             dep = all_departments(reader)
             print(*dep)
         elif inp == '2':
-            reader = open_file('C:/Julia/AAA/HWsample.csv')
             statistics = report(reader)
             data = from_dict_to_list(statistics)
             print(*data[0].keys(), sep=' | ')
@@ -36,7 +32,6 @@ def my_menu():
                 is_logged = True
         elif inp == '3':
             if is_logged:
-                reader = open_file('C:/Julia/AAA/HWsample.csv')
                 statistics = report(reader)
                 data = from_dict_to_list(statistics)
                 record(data)
